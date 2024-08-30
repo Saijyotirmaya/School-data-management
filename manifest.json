@@ -1,0 +1,146 @@
+{
+  "_version": "1.59.0",
+  "sap.app": {
+    "id": "com.sap.ui.studentdata",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.14.2",
+      "toolsId": "de7440d9-9b9a-459a-80b2-1a6fc330850b"
+    },
+    "dataSources": {
+      "ProductJSONData":{
+        "uri":"model/data.json",
+        "type":"JSON"
+      }
+  }
+  
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.126.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.suite.ui.generic.template": {},
+        "sap.ui.comp": {},
+        "sap.ui.generic.app": {},
+        "sap.ui.table": {},
+        "sap.ushell": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.sap.ui.studentdata.i18n.i18n"
+        }
+      },
+      "":{
+        "type":"sap.ui.model.json.JSONModel",
+        "dataSource":"ProductJSONData"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "async": true,
+        "viewPath": "com.sap.ui.studentdata.view",
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "clearControlAggregation": false
+      },
+      "routes": [
+        {
+          "name": "Routelistpage",
+          "pattern": ":?query:",
+          "target": [
+            "Targetlistpage"
+          ]
+        },
+        {
+          "name": "detail",
+          "pattern": "detail/{ID}",
+          "target": [
+            "Detdetail"
+          ]
+        },
+        {
+          "name": "detailchange",
+          "pattern": "detailchange",
+          "target": [
+            "Detailchange"
+          ]
+        }
+
+      ],
+      "targets": {
+        "Targetlistpage": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "listpage",
+          "viewName": "listpage"
+        },
+        "Detdetail": {
+          "viewType": "XML",
+          "transition": "Slide",
+          "clearControlAggregation": false,
+          "viewId": "detail",
+          "viewName": "detail"
+        },
+        "Detailchange":{
+          "viewType": "XML",
+          "transition": "fade",
+          "clearControlAggregation": false,
+          "viewId": "detailchange",
+          "viewName": "detailchange"
+        }
+
+      }
+    },
+    "rootView": {
+      "viewName": "com.sap.ui.studentdata.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    }
+  }
+}
