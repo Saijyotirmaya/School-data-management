@@ -1,0 +1,128 @@
+<mvc:View
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName="com.sap.ui.studentdata.controller.detail"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Page id="page">
+        <content>
+            <VBox>
+                <f:Form
+                    id="formid_001"
+                    editable="false"
+                >
+                    <f:title>
+                        <core:Title text="Student Data" />
+                    </f:title>
+                    <f:layout>
+                        <f:ResponsiveGridLayout
+                            labelSpanXL="4"
+                            labelSpanL="4"
+                            labelSpanM="12"
+                            labelSpanS="12"
+                            adjustLabelSpan="false"
+                            emptySpanXL="0"
+                            emptySpanL="0"
+                            emptySpanM="0"
+                            emptySpanS="0"
+                            columnsXL="2"
+                            columnsL="2"
+                            columnsM="1"
+                            singleContainerFullSize="false"
+                        />
+                    </f:layout>
+                    <f:formContainers >
+                        <f:FormContainer title="personal data">
+                            <f:formElements>
+                                <f:FormElement label="Name">
+                                    <f:fields>
+                                        <Text
+                                            text="{Student_Name}"
+                                            id="nameText"
+                                            
+                                        />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Father Name">
+                                    <f:fields>
+                                        <Text text="{Father_Name}" />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Blood Group ">
+                                    <f:fields>
+                                        <Text text="{Blood_Group}" />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Height ">
+                                    <f:fields>
+                                        <Text text="{height}" />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Weight ">
+                                    <f:fields>
+                                        <Text text="{weight}" />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Age">
+                                    <f:fields>
+                                        <Text text="{Age}" />
+                                    </f:fields>
+                                </f:FormElement>
+                            </f:formElements>
+                        </f:FormContainer>
+                        <f:FormContainer title="School data">
+                            <f:formElements>
+                                <f:FormElement label="School Name">
+                                    <f:fields>
+                                        <Text text="{School_Name}" />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Roll no">
+                                    <f:fields>
+                                        <Text text="{Roll_no}" />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Class ">
+                                    <f:fields>
+                                        <Text text="{Class}" />
+                                    </f:fields>
+                                </f:FormElement>
+                                <f:FormElement label="Section ">
+                                    <f:fields>
+                                        <Text text="{section}" />
+                                    </f:fields>
+                                </f:FormElement>
+                            </f:formElements>
+                        </f:FormContainer>
+                    </f:formContainers>
+                </f:Form>
+            </VBox>
+        </content>
+        <footer>
+            <Bar>
+                <contentRight>
+                    <Button
+                        id="edit"
+                        text="Edit"
+                        press="onEditPress"
+                    />
+                    <Button
+                        id="save"
+                        text="Save"
+                        type="Emphasized"
+                        visible="false"
+                        press="onSavePress"
+                    />
+                    <Button
+                        id="cancel"
+                        text="Cancel"
+                        visible="false"
+                        press="onCancelPress"
+                    />
+                </contentRight>
+            </Bar>
+        </footer>
+    </Page>
+</mvc:View>
