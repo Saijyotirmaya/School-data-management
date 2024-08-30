@@ -1,0 +1,174 @@
+<mvc:View
+    xmlns:table="sap.ui.table"
+    controllerName="com.sap.ui.studentdata.controller.listpage"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:f="sap.f"
+    xmlns:t="sap.ui.table"
+    xmlns:core="sap.ui.core"
+    height="100%"
+>
+
+
+    <f:DynamicPage headerExpanded="{Studentdata}" showFooter="true">
+        <!-- <SearchField width="30%" search="onSearch" ></SearchField> -->
+        <f:header>
+            <f:DynamicPageHeader pinnable="true">
+                <f:content>
+                    <fb:FilterBar
+                        id="filterbar"
+                        persistencyKey="myPersKey"
+                        useToolbar="false"
+                        search=".onSearch"
+                        filterChange=".onFilterChange"
+                        afterVariantLoad=".onAfterVariantLoad"
+
+                    >
+                        <fb:filterGroupItems>
+                            <fb:FilterGroupItem
+                                name="Roll_no"
+                                label="Roll no"
+                                groupName="Group1"
+                                visibleInFilterBar="true"
+                            >
+                                <fb:control>
+                                    <MultiComboBox
+                                        name="Roll no"
+                                        selectionChange=".onSelectionChange"
+                                        items="{ path:'/Studentdata'}"
+                                    >
+                                        <core:Item
+                                            key="{Roll_no}"
+                                            text="{Roll_no}"
+                                        />
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                            <fb:FilterGroupItem
+                                name="Student_Name"
+                                label="Student Name"
+                                groupName="Group1"
+                                visibleInFilterBar="true"
+                            >
+                              <fb:control>
+                                    <MultiComboBox
+                                        name=""
+                                        selectionChange=".onSelectionChange"
+                                        items="{ path:'/Studentdata'}"
+                                    >
+                                        <core:Item
+                                            key="{Student_Name}"
+                                            text="{Student_Name}"
+                                        />
+                                    </MultiComboBox>
+                                </fb:control>
+                            </fb:FilterGroupItem>
+                        </fb:filterGroupItems>
+                    </fb:FilterBar>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+                                                        
+        <f:content>
+            <Table
+                id="idtable"
+                items="{path:'/Studentdata'}"
+                mode="MultiSelect"
+                sticky="ColumnHeaders"
+                 
+            >
+                <headerToolbar >
+                    <Toolbar>
+                        <ToolbarSpacer />
+                        <Button text="Create" press="onCreate"/>
+                        <Button text="Delete" press="onDelete"/>
+                        <Button text="Edit"  press="onEdit"/>
+                    </Toolbar>
+                </headerToolbar>
+
+                <columns >
+                    <Column>
+                        <header>
+                            <Label text="School Name" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Roll no" />
+                           	
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Student Name" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Class" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Father Name" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Blood Group" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Height" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Weight" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Section" />
+                        </header>
+                    </Column>
+                    <Column>
+                        <header>
+                            <Label text="Age" />
+                        </header>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem 
+                       type="Active"
+                       press="onListitempress"
+                
+                    >
+                        <cells>
+                            <Text text="{School_Name}" />
+                           <Text text="{Roll_no}"/>
+                            <Text text="{Student_Name}" />
+                            <Text text="{Class}" />
+                            <Text text="{Father_Name}" />
+                            <Text text="{Blood_Group}" />
+                            <Text text="{height}"/>
+                            <Text text="{weight}"/>
+                            <Text text="{section}" />
+                            <Text text="{Age}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+         <f:footer >
+			<OverflowToolbar >
+				<ToolbarSpacer/>
+				<Button type="Accept" text="Save" press="onpress"/>
+				<!-- <Button type="Reject" text="Cancel"/> -->
+			</OverflowToolbar>
+		</f:footer>
+    </f:DynamicPage>
+</mvc:View>
